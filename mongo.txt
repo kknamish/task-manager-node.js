@@ -1,0 +1,33 @@
+SQL(Structured Query Language):
+1. Table
+2. Row/Record
+3. Column
+
+NoSQL(Not Only SQL):
+1. Collection
+2. Document
+3. Field
+
+[                                                                      _
+    {                                               _                   |
+        "id": "13poijadf",                           |                  |
+        "name": "Namish",               ->Field      |-> Document       |
+        "email": "kknamish@gmail.com"                |                  |-> Collection
+    },                                              -                   |
+    {                                                                   |   
+        ...                                                             |
+    }                                                                   |
+]                                                                      -
+
+Multiple Collections are inturn a Database
+
+Keep the below(Mongo server) up and running in a terminal:
+C:\Users\nkuchark\mongodb\bin\mongod.exe --dbpath=/Users/nkuchark/mongodb-data
+
+1. _id is the primary key.
+
+2. ObjectId is a 12bit id generated automatically for each Field and stored in _id as a primary key.
+
+3. We can create custom ObjectId by using - 
+     const id = new ObjectId('xyz')
+
