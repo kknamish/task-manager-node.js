@@ -31,3 +31,8 @@ C:\Users\nkuchark\mongodb\bin\mongod.exe --dbpath=/Users/nkuchark/mongodb-data
 3. We can create custom ObjectId by using - 
      const id = new ObjectId('xyz')
 
+
+MONGOOSE:
+1. Mongoose is an ODM(Object Document Mapper).
+2. It makes our task easy while dealing with MongoDB.
+3. We can define Schema of the model.
