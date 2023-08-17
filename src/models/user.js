@@ -58,7 +58,7 @@ userSchema.methods.generateAuthToken = async function () {
 
     user.tokens = user.tokens.concat({ token })
     await user.save()
-    
+
     return token
 }
 
@@ -77,6 +77,10 @@ userSchema.statics.findByCredentials = async (email, password) => {
 
     return user
 }
+
+
+// Without middleware: new request -> run route handler.
+// With Middleware   : new request -> do something -> run route handler.
 
 // Hash the plain text password before saving using Middleware
 userSchema.pre('save', async function(next){
