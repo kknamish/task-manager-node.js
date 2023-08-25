@@ -52,6 +52,25 @@ const userSchema = new mongoose.Schema({
     }]
 })
 
+userSchema.virtual('tasks', {
+    ref: 'Task',
+    localField: '_id',
+    foreignField: 'owner'
+})
+
+// methods is for specific instance -> user.getPublicProfile()
+// statics is for entire model -> User.findByCredentials()
+
+userSchema.methods.toJSON = function () {
+    const user = this
+    const userObject = user.toObject()
+
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject
+}
+
 userSchema.methods.generateAuthToken = async function () {
     const user = this
     const token = await jwt.sign({ _id: user._id.toString() }, 'thisisasecretkey')
@@ -95,4 +114,4 @@ userSchema.pre('save', async function(next){
 
 const User = mongoose.model('User', userSchema)
 
-module.exports = User
+module.exports = User   
